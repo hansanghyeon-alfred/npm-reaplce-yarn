@@ -3,8 +3,8 @@
 # pbpaste를 사용하여 클립보드 내용을 읽어옴
 clipboard_content=$(pbpaste)
 
-# npm 앞의 모든 문자열을 삭제하고 yarn add로 교체
-yarn_content=$(echo "$clipboard_content" | sed -E 's/.*npm /yarn add /')
+# npm install일수있도 npm i일수있다. 해당 문자를 yarn add로 교체한다.
+yarn_content=$(echo "$clipboard_content" | sed -E 's/.*npm (install|i)/yarn add/')
 
 # 변경 전과 변경 후 텍스트 준비
 before_text="$clipboard_content"
